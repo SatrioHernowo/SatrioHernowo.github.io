@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Foto XI IPS 3</title>
+    <meta name="description" content="Galeri foto kenangan Kelas XI IPS 3 SMAN 1 Purwareja Klampok 2021-2024." />
+    <meta name="keywords" content="SMAN 1 Purwareja Klampok IPS 3 2021-2024, kenangan, galeri foto, kelas XI" />
+    <meta name="author" content="Satrio Hernowo" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('img/BG.1.png');
+            background-size: cover;
+            /* Background gambar */
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Slideshow di pojok kiri atas */
+        .slideshow-container {
+            position: absolute;
+            width: 100%;
+            height: 10%;
+            top: 0%;
+            left: -1%;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 5.9s;
+        }
+
+        .slideshow-container img {
+            position: absolute;
+            height: auto;
+            max-height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slideshow-container img.active {
+            opacity: 1;
+        }
+
+        .xi-countainer {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            width: 18%;
+            max-width: 20%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 1.5s;
+        }
+
+        .kelasxi {
+            width: 100%;
+        }
+
+        .textxi-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: dodgerblue;
+        }
+
+        .textxi {
+            font-family: 'orbitron', sans-serif;
+            font-size: 14px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        @media screen and (min-width: 1000px) {
+            .textxi {
+                font-size: 18px;
+                /* Ukuran lebih besar di desktop */
+            }
+        }
+
+        .border {
+            width: 84%;
+            height: 91%;
+            max-height: 100%;
+            position: absolute;
+            top: 49.7%;
+            left: 50.8%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 2s;
+        }
+
+        .carousel {
+            position: relative;
+            width: 52%;
+            max-width: 66%;
+            overflow: hidden;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 2.5s;
+        }
+
+        .images {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            /* Efek transisi */
+        }
+
+        .images img {
+            max-width: 100%;
+            height: 100%;
+            max-height: 100%;
+            border-radius: 2%;
+            object-fit: cover;
+        }
+
+        /* Tombol panah kiri & kanan */
+        .btn {
+            position: relative;
+            width: 14%;
+            max-width: 100%;
+            height: 14%;
+            max-width: 100%;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 3s;
+        }
+
+        .prev {
+            left: 9.5%;
+        }
+
+        .next {
+            right: 9.6%;
+        }
+
+        .x-countainer {
+            width: 15%;
+            position: absolute;
+            top: 90.2%;
+            left: 28.2%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 3.5s;
+        }
+
+        .kelasx {
+            width: 100%;
+        }
+
+        .textx-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: dodgerblue;
+        }
+
+        .textx {
+            font-family: 'orbitron', sans-serif;
+            font-size: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        @media screen and (min-width: 1000px) {
+            .textx {
+                font-size: 14px;
+                /* Ukuran lebih besar di desktop */
+            }
+        }
+
+        .xii-countainer {
+            width: 15%;
+            position: absolute;
+            top: 90.2%;
+            left: 43%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 4s;
+        }
+
+        .kelasxii {
+            width: 100%;
+        }
+
+        .textxii-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: dodgerblue;
+        }
+
+        .textxii {
+            font-family: 'orbitron', sans-serif;
+            font-size: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        @media screen and (min-width: 1000px) {
+            .textxii {
+                font-size: 14px;
+                /* Ukuran lebih besar di desktop */
+            }
+        }
+
+        .lulus-countainer {
+            width: 15%;
+            position: absolute;
+            top: 90.2%;
+            left: 57.7%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 4.5s;
+        }
+
+        .lulus {
+            width: 100%;
+        }
+
+        .lulus-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: dodgerblue;
+        }
+
+        .textlulus {
+            font-family: 'orbitron', sans-serif;
+            font-size: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        @media screen and (min-width: 1000px) {
+            .textlulus {
+                font-size: 14px;
+                /* Ukuran lebih besar di desktop */
+            }
+        }
+
+        .yb-countainer {
+            width: 15%;
+            position: absolute;
+            overflow: hidden;
+            top: 90.2%;
+            left: 72.2%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 5s;
+        }
+
+        .yb {
+            width: 100%;
+        }
+
+        .yb-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: dodgerblue;
+        }
+
+        .textyb {
+            font-family: 'orbitron', sans-serif;
+            font-size: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        @media screen and (min-width: 1000px) {
+            .textyb {
+                font-size: 14px;
+                /* Ukuran lebih besar di desktop */
+            }
+        }
+
+        .x-countainer a,
+        .xii-countainer a,
+        .lulus-countainer a,
+        .yb-countainer a {
+            z-index: 10;
+        }
+
+
+        a {
+            text-decoration: none;
+            /* Hilangkan garis bawah */
+            color: inherit;
+            /* Warna sesuai dengan desain */
+        }
+
+        a:hover .textx,
+        a:hover .textxii,
+        a:hover .textlulus,
+        a:hover .textyb {
+            color: cyan;
+            /* Efek hover */
+            text-shadow: 0 0 100px cyan;
+        }
+
+        .music-container {
+            position: absolute;
+            max-width: 100%;
+            top: 86%;
+            /* Jarak dari bawah */
+            left: 0%;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 5.5s;
+        }
+
+        .music-btn {
+            width: 15%;
+            /* Ukuran gambar tombol */
+            cursor: pointer;
+            /* Ubah kursor menjadi pointer */
+            transition: transform 0.3s ease;
+        }
+
+        .tittle-music {
+            color: white;
+            font-size: 6px;
+            position: relative;
+            margin-left: -9.3%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Jika layar lebih besar dari 768px (Desktop) */
+        @media screen and (min-width: 1000px) {
+            .tittle-music {
+                font-size: 14px;
+                /* Ukuran lebih besar di desktop */
+            }
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            /* Efek hover untuk memperbesar */
+        }
+
+        /* Hanya tampil di HP (max-width: 768px) */
+        @media screen and (min-width: 1000px) {
+            #rotate-message {
+                display: none !important;
+                opacity: 1;
+            }
+            .border {
+                width: 81%;
+            }
+            .carousel {
+                width: 47%;
+            }
+            .prev {
+                left: 10.8%;
+            }
+
+            .next {
+                right: 11%;
+            }
+            .music-container {
+                top: 81%;
+            }
+            .tittle-music {
+                font-size: 10px;
+            }
+        }
+    </style>
+
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <a href="index.html">
+        <img src="img/lg.S (2).png" class="active" alt="Gambar 1">
+        <img src="img/ips3.png" alt="Gambar 2">
+        <img src="img/lg.S.png" alt="Gambar 3">
+        </a>
+    </div>
+    <div class="xi-countainer">
+        <img src="img/btnclass.png" alt="Kelas" class="kelasxi">
+        <div class="textx-overlay">
+            <div class="textxi">XI</div>
+        </div>
+    </div>
+    <!-- Tombol panah kiri & kanan di luar .carousel -->
+    <img src="img/panah-kiri.png" alt="Tombol Kiri" class="btn prev" onclick="prevImage()">
+    <div class="carousel">
+        <div class="images">
+            <img src="C.XI/XI.LOGO.png" alt="Foto 1">
+            <img src="C.XI/XI..png" alt="Foto 2">
+            <img src="C.XI/XI (2).png" alt="Foto 3">
+            <img src="C.XI/XI (3).png" alt="Foto 4">
+            <img src="C.XI/XI (4).png" alt="Foto 5">
+            <img src="C.XI/XI (5).png" alt="Foto 6">
+            <img src="C.XI/XI (6).png" alt="Foto 7">
+            <img src="C.XI/XI (7).png" alt="Foto 8">
+            <img src="C.XI/XI (8).png" alt="Foto 9">
+            <img src="C.XI/XI (9).png" alt="Foto 10">
+            <img src="C.XI/XI (10).png" alt="Foto 11">
+            <img src="C.XI/XI (11).png" alt="Foto 12">
+            <img src="C.XI/XI (12).png" alt="Foto 13">
+            <img src="C.XI/XI (13).png" alt="Foto 14">
+            <img src="C.XI/XI (14).png" alt="Foto 15">
+            <img src="C.XI/XI (15).png" alt="Foto 16">
+            <img src="C.XI/XI (16).png" alt="Foto 17">
+            <img src="C.XI/XI (17).png" alt="Foto 18">
+            <img src="C.XI/XI (18).png" alt="Foto 19">
+            <img src="C.XI/XI (19).png" alt="Foto 20">
+            <img src="C.XI/XI (20).png" alt="Foto 21">
+            <img src="C.XI/XI (21).png" alt="Foto 22">
+        </div>
+    </div>
+    <img src="img/panah-kanan.png" alt="Tombol Kanan" class="btn next" onclick="nextImage()">
+    <img src="img/border.png" alt="border" class="border">
+    <div class="music-container">
+        <img src="img/lgmusic.png" alt="Play Music" class="music-btn" onclick="toggleMusic()">
+        <span class="tittle-music">Masih Di Sini - Bunkface</span>
+        <audio id="musicPlayer" src="Masih Di Sini - Bunkface.mp3" loop></audio>
+    </div>
+    <div class="x-countainer">
+        <a href="x.html">
+            <img src="img/btnclass.png" alt="Kelas" class="kelasx">
+            <div class="textx-overlay">
+                <div class="textx">X</div>
+            </div>
+        </a>
+    </div>
+    <div class="xii-countainer">
+        <a href="xii.html">
+            <img src="img/btnclass.png" alt="Kelas" class="kelasxii">
+            <div class="textxii-overlay">
+                <div class="textxii">XII</div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="lulus-countainer">
+        <a href="Graduation.html">
+            <img src="img/btnclass.png" alt="Graduate" class="lulus">
+            <div class="lulus-overlay">
+                <div class="textlulus">Graduation</div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="yb-countainer">
+        <a href="yearbook.html">
+            <img src="img/btnclass.png" alt="YearBook" class="yb">
+            <div class="yb-overlay">
+                <div class="textyb">YearBook</div>
+            </div>
+        </a>
+    </div>
+    
+    <script>
+        let index = 0;
+        const images = document.querySelectorAll('.slideshow-container img');
+
+        function changeImage() {
+            images[index].classList.remove('active');
+            index = (index + 1) % images.length;
+            images[index].classList.add('active');
+        }
+
+        setInterval(changeImage, 4500); // Ganti gambar setiap detik
+        let index2 = 0;
+        const imageContainer = document.querySelector('.images'); // Baris 388
+        const totalImages = document.querySelectorAll('.images img').length; // Baris 389
+
+        function showImage() {
+        const offset = -(index2 * 100);
+        imageContainer.style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextImage() {
+            index2 = (index2 + 1) % totalImages;
+        showImage();
+        }
+
+        function prevImage() {
+            index2 = (index2 - 1 + totalImages) % totalImages;
+        showImage();
+        }
+
+// Saat halaman dimuat, lanjutkan musik jika statusnya "playing"
+window.onload = function() {
+    const musicPlayer = document.getElementById("musicPlayer");
+    const musicStatus = localStorage.getItem("musicStatus");
+
+    if (musicStatus === "playing") {
+        musicPlayer.play();  // Lanjutkan musik
+    }
+}
+
+// Fungsi untuk mengubah status musik dan memutarnya
+function toggleMusic() {
+    const musicPlayer = document.getElementById("musicPlayer");
+
+    if (musicPlayer.paused) {
+        musicPlayer.play();
+        localStorage.setItem("musicStatus", "playing"); // Simpan status musik
+    } else {
+        musicPlayer.pause();
+        localStorage.setItem("musicStatus", "paused"); // Simpan status musik
+    }
+}
+
+// Menyimpan status musik saat halaman ditutup atau dimuat ulang
+window.onbeforeunload = function() {
+    const musicPlayer = document.getElementById("musicPlayer");
+
+    if (!musicPlayer.paused) {
+        localStorage.setItem("musicStatus", "playing"); // Simpan status musik jika diputar
+    } else {
+        localStorage.setItem("musicStatus", "paused"); // Simpan status musik jika berhenti
+    }
+}
+    </script>
+</body>
+</html>

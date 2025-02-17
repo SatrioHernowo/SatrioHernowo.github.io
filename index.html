@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMANSA PERJAKA IPS 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url(img/BackgroundReal.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Gambar 1 - Pojok kanan atas */
+        .gambar-1 {
+            position: absolute;
+            top: 0%;
+            right: 0.4%;
+            width: 6%;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+        }
+
+        .gambar-1:hover {
+            transform: scale(1.1);
+            /* Membesar sedikit */
+            box-shadow: 0 0 15px #00ffcc(255, 204, 0, 0.8);
+            /* Glow effect */
+        }
+
+        .text-1 {
+            position: absolute;
+            top: 4%;
+            right: 9%;
+            color: aqua;
+            font-size: 10px;
+        }
+
+        .text-2 {
+            position: absolute;
+            top: 7.7%;
+            right: 7%;
+            color: aqua;
+            font-size: 10px;
+        }
+
+        /* Gaya umum untuk background-box */
+        .background-box {
+            position: absolute;
+            background-color: rgba(11, 30, 114, 0.089);
+            /* Warna hitam transparan */
+            border-radius: 10px;
+            /* Sudut membulat */
+            box-shadow: 0 0 30px rgb(0, 238, 255);
+            /* Efek glow */
+            z-index: 1;
+            /* Di belakang elemen utama */
+        }
+
+        /* Kotak latar untuk Gambar 2 */
+        .gambar-2-box {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            /* Lebar kotak */
+            height: 78%;
+            /* Tinggi kotak */
+        }
+
+        /* Kotak latar untuk Gambar 3 dan Input */
+        .gambar-3-box {
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10%;
+        }
+
+        /* Sesuaikan elemen utama agar di depan kotak */
+        .gambar-2,
+        .gambar-3-container {
+            z-index: 2;
+            position: relative;
+            /* Supaya elemen tetap di atas kotak */
+        }
+
+        /* Gambar 2 - Tengah */
+        .gambar-2 {
+            width: 70%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Gambar 3 - Sedikit di bawah depan gambar 2 */
+        .gambar-3-container {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 27%;
+            animation: move-up-down 3s ease-in-out infinite;
+        }
+
+        .gambar-3 {
+            width: 100%;
+            display: block;
+        }
+
+        /* Input teks di atas gambar 3 (overlay) */
+        .input-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            animation: move-up-down 3s ease-in-out infinite;
+        }
+
+        input {
+            width: 100%;
+            padding: 9.8%;
+            background: transparent;
+            /* Warna hitam transparan */
+            border: 0px solid #00ffcc;
+            border-radius: 0px;
+            text-align: center;
+            font-size: 13px;
+            color: aqua;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: aqua;
+        }
+        /* Override style autofill Chrome agar background transparan */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus {
+            -webkit-text-fill-color: aqua !important;
+            -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+            background-color: transparent !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        /* Efek saat input fokus */
+        input:focus {
+            border-color: aqua;
+            box-shadow: 0 0 5px aqua;
+            background-color: transparent;
+        }
+
+        /* Animasi placeholder bergerak ke atas */
+        .input-box label {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 7px;
+            transition: all 0.3s ease-in-out;
+            pointer-events: none;
+        }
+
+        /* Saat input diketik, label naik */
+        input:focus~label,
+        input:not(:placeholder-shown)+label {
+            top: -37%;
+            font-size: 8px;
+            color: aqua;
+        }
+
+
+        /* Efek hover pada input */
+        input:hover {
+            border-color: #00ffcc;
+            /* Border berubah warna */
+            box-shadow: 0 0 10px #00ffcc(255, 204, 0, 0.7);
+            /* Glow pada input */
+        }
+
+        /* Animasi untuk gambar 3 dan input teks */
+        @keyframes move-up-down {
+
+            0%,
+            100% {
+                transform: translate(-50%, -48%);
+            }
+
+            50% {
+                transform: translate(-50%, -52%);
+            }
+        }
+
+        @media screen and (min-width: 1000px) {
+            .gambar-1 {
+                width: 5%;
+                top: 0%;
+                right: 0.4%;
+            }
+
+            .input {
+                font-size: 18px;
+            }
+
+            .input-box {
+                font-size: 16px;
+                /* Ukuran lebih besar di desktop */
+            }
+
+            .input-box label {
+                font-size: 16px;
+            }
+
+            input:focus~label,
+            input:not(:placeholder-shown)+label {
+                top: -38%;
+                font-size: 16px;
+            }
+
+            .text-1 {
+                font-size: 13px;
+                top: 3%;
+                right: 8.5%;
+            }
+
+            .text-2 {
+                font-size: 14px;
+                top: 6%;
+                right: 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rotate-message"
+        style="display: none; position: fixed; width: 100%; height: 100%; background: black; color: white; font-size: 20px; display: flex; align-items: center; justify-content: center; text-align: center; z-index: 9999;">
+        Silakan putar perangkat Anda ke mode "landscape" untuk melihat tampilan terbaik.
+    </div>
+    <!-- Gambar 1 dan teks -->
+    <img src="img/SMANSA.png" alt="gambar 1" class="gambar-1">
+    <div class="text-1">SMAN 1</div>
+    <div class="text-2">Purwareja Klampok</div>
+    <!-- Kotak latar belakang untuk Gambar 2 -->
+    <div class="background-box gambar-2-box"></div>
+    <img src="img/ips3.png" alt="Gambar 2" class="gambar-2">
+
+    <!-- Kotak latar belakang untuk Gambar 3 dan input teks -->
+    <div class="background-box gambar-3-box"></div>
+    <div class="gambar-3-container">
+        <img src="img/input.png" alt="Gambar 3" class="gambar-3">
+        <div class="input-overlay">
+            <div class="input-box">
+                <input type="text" id="inputText" placeholder=" " required onkeypress="checkEnter(event)">
+                <label for="inputText">Masukkan Nama Kamu</label>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function isMobileDevice() {
+            return window.innerWidth <= 1000; // Hanya anggap perangkat mobile jika lebarnya <= 768px
+        }
+
+        function checkOrientation() {
+            if (window.innerHeight > window.innerWidth && isMobileDevice()) {
+                document.getElementById("rotate-message").style.display = "flex";
+            } else {
+                document.getElementById("rotate-message").style.display = "none";
+            }
+        }
+
+        // Jalankan saat halaman dimuat dan saat ukuran layar berubah
+        window.onload = checkOrientation;
+        window.addEventListener("resize", checkOrientation);
+    function checkEnter(event) {
+        if (event.key === "Enter") {
+            const inputValue = document.getElementById("inputText").value;
+
+            if (inputValue.trim() !== "") {
+                // Kirim nama melalui URL
+                const url = `Class.html?name=${encodeURIComponent(inputValue)}`;
+                window.location.href = url;
+            } else {
+                alert("Silakan masukkan nama sebelum melanjutkan!");
+            }
+        }
+    }
+</script>
+
+</body>
+
+</html>
